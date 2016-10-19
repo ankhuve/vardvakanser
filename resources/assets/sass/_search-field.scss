@@ -1,0 +1,99 @@
+.search-field{
+    width: 100%;
+    padding: 3rem 0;
+
+    &.white-bg{
+        background: white;
+    }
+
+    ::-webkit-input-placeholder {
+        color: scale_color($text-color, $lightness: 20%);
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+        color: scale_color($text-color, $lightness: 20%);
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+        color: scale_color($text-color, $lightness: 20%);
+    }
+
+    :-ms-input-placeholder {
+        color: scale_color($text-color, $lightness: 20%);
+    }
+
+    h1{
+        color: $primary-color;
+        font-size: 3rem;
+        margin: 1rem 0;
+        display: inline-block;
+    }
+
+    .input-group-full{
+        width: 100%;
+
+        > .form-control.form-input{
+            border-radius: 3px 0 0 3px;
+        }
+
+        .form-input.form-control{
+            width: 100%;
+        }
+
+        .input-group-btn{
+            width: 100px;
+
+            .form-input.form-input--btn{
+                width: 100px;
+            }
+        }
+
+    }
+
+    .input-label--subtitle{
+        padding: 0.8rem 0;
+    }
+}
+
+
+.form-input{
+    width: 100%;
+    height: 5rem;
+    background: $body-bg;
+    color: black;
+    padding: 0.7rem 2rem;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 3px;
+
+    &.form-input--btn{
+        width: auto;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+        //position: absolute;
+        border-radius: 0 3px 3px 0;
+
+        &.btn-primary{
+            background: $secondary-color;
+
+            &:active, &:focus, &:hover{
+                background: $secondary-color-dark;
+                color: white;
+            }
+        }
+        &.btn-danger{
+            background: $primary-color;
+
+            &:active, &:focus, &:hover{
+                background: $primary-color-dark;
+                color: white;
+            }
+        }
+
+
+    }
+}
+

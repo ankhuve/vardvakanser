@@ -1,0 +1,23 @@
+.filters{
+    .form-input{
+        height: 4rem;
+        background: $bg-color-medium;
+        color: black;
+        padding: 0.7rem 2rem;
+        font-size: 1.6rem;
+        border: none;
+        border-radius: 3px;
+        margin-bottom: 2rem;
+    }
+
+    .form-input--btn{
+        width: 100%;
+        border: none;
+        color: white;
+
+        &:active, &:focus, &:hover{
+            background: $secondary-color-dark;
+            color: white;
+        }
+    }
+}

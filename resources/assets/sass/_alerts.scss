@@ -1,0 +1,17 @@
+.alert{
+    &.alert-custom{
+        background: $primary-color-dark;
+        color: white;
+    }
+
+    &.alert-top{
+        width: auto;
+        max-width: 650px;
+        margin: 0 auto 1rem;
+        padding: 1rem;
+        text-align: center;
+        -webkit-border-radius: 0 0 4px 4px;
+        -moz-border-radius: 0 0 4px 4px;
+        border-radius: 0 0 4px 4px;
+    }
+}
