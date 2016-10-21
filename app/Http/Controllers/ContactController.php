@@ -29,7 +29,7 @@ class ContactController extends Controller
             ), function($message)
             {
                 $message->from(env('MAIL_USERNAME'), config('app.name'));
-                $message->to('info@jobbiskola.se', config('app.name'))->subject('Kontakt via ' . config('app.name') . '.se');
+                $message->to('info@vardvakanser.se', config('app.name'))->subject('Kontakt via ' . config('app.name') . '.se');
             });
 
         return \Redirect::action('ContactController@create')
