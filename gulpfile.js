@@ -19,6 +19,6 @@ elixir(mix => {
        .webpack('app.js')
         .browserSync({
             'proxy' : 'vardvakanser.app',
-            'port' : 5000
+            'port' : 5001
         });
 });
