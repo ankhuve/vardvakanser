@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', config('app.name', 'Vårdvakanser') . " | " . $jobMatch->title)
-@section('meta_description', $jobMatch->title . " | " . $jobMatch->work_place)
+@section('meta-description', $jobMatch->title . " | " . $jobMatch->work_place)
 
 @section('og-title', $jobMatch->title)
 @section('og-description', (strlen(strip_tags($jobMatch->description))<200) ? strip_tags($jobMatch->description) : substr(strip_tags($jobMatch->description), 0, 200)." ...")
