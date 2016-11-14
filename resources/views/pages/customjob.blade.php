@@ -21,16 +21,6 @@
                 </div>
             @endif
 
-            @if(Session::has('message'))
-                <div class="row">
-                    <div class="col-md-offset-1 col-md-10">
-                        <div class="alert alert-success">
-                            {!! Session::get('message') !!}
-                        </div>
-                    </div>
-                </div>
-            @endif
-
             <div class="panel panel-custom col-lg-10 col-lg-offset-1">
                 <div class="panel-heading">
                     <div class="row">
