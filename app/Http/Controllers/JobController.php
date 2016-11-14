@@ -52,6 +52,8 @@ class JobController extends Controller
     public function customJob($jobid, $slug)
     {
         $jobMatch = Job::find($jobid);
+        $jobMatch->page_views++;
+        $jobMatch->save();
         $now = time();
         $date = strtotime($jobMatch->published_at);
         $datediff = (int)(floor(($now - $date)/(60*60*24)));
@@ -105,6 +107,8 @@ class JobController extends Controller
         // kolla om det är en AF-annons eller en egen
         if($slug && $job = Job::find($id)){
             // eget jobb
+            $job->application_clicks++;
+            $job->save();
         } else{
             $job = null;
             // AF-jobb
