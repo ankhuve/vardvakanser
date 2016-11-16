@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', config('app.name', 'Vårdvakanser') . " | " . $jobMatch->title)
-@section('meta_description', $jobMatch->title . " | " . $jobMatch->work_place)
+@section('meta-description', $jobMatch->title . " | " . $jobMatch->work_place)
 
 @section('og-title', $jobMatch->title)
 @section('og-description', (strlen(strip_tags($jobMatch->description))<200) ? strip_tags($jobMatch->description) : substr(strip_tags($jobMatch->description), 0, 200)." ...")
@@ -16,16 +16,6 @@
                     <div class="col-md-offset-1 col-md-10">
                         <div class="alert alert-custom">
                             {!! Session::get('contactError') !!}
-                        </div>
-                    </div>
-                </div>
-            @endif
-
-            @if(Session::has('message'))
-                <div class="row">
-                    <div class="col-md-offset-1 col-md-10">
-                        <div class="alert alert-success">
-                            {!! Session::get('message') !!}
                         </div>
                     </div>
                 </div>

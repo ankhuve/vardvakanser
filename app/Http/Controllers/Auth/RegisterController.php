@@ -60,6 +60,8 @@ class RegisterController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             'cv' => 'max:3072|mimes:doc,docx,pdf,rtf,txt',
+            'lan' => 'required|numeric',
+            'category' => 'required|min:1'
         ]);
     }
 
@@ -84,6 +86,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'cv_path' => $data['cv_path'],
+            'county' => $data['lan'],
+            'categories' => json_encode($data['category'])
         ]);
     }
 
