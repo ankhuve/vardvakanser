@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
+use stdClass;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -33,6 +34,8 @@ class AppServiceProvider extends ServiceProvider
                     ])->getBody()->getContents();
 
                     $results = json_decode($results);
+                    $results->soklista->sokdata = $this->addCustomJobTypes($results->soklista->sokdata);
+
                     if($index === 0){
                         array_push($searchOptions, $results);
                     } else{
@@ -55,6 +58,7 @@ class AppServiceProvider extends ServiceProvider
                 ])->getBody()->getContents();
 
                 $results = json_decode($results);
+                $results->soklista->sokdata = $this->addCustomJobTypes($results->soklista->sokdata);
                 array_push($searchOptions, $results);
             }
         }catch(\Exception $e){
@@ -71,5 +75,33 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+    }
+
+    private function addCustomJobTypes(array $afJobTypesArray)
+    {
+        $customJobTypes = array();
+
+        // Socialsekreterare
+        $type = new stdClass();
+        $type->id = '9000';
+        $type->namn = 'Socialsekreterare';
+        array_push($customJobTypes, $type);
+
+        // Övrigt
+        $type = new stdClass();
+        $type->id = '9001';
+        $type->namn = 'Övrigt';
+        array_push($customJobTypes, $type);
+
+        // Add all the custom job types
+        foreach ($customJobTypes as $type){
+            array_push($afJobTypesArray, $type);
+        }
+
+        $afJobTypesArray = array_values(array_sort($afJobTypesArray, function ($value) {
+            return $value->namn;
+        }));
+
+        return $afJobTypesArray;
     }
 }
