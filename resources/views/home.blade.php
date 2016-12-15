@@ -74,7 +74,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="row">
-                                    <a href="{{ URL::action('RegisterController@index') }}"><button class="btn btn-primary btn-round btn-padded col-xs-10 col-xs-offset-1">Skapa din profil</button></a>
+                                    <a href="{{ $key === 0 ? URL::action('RegisterController@index') : URL::action('CompanyController@index')  }}"><button class="btn btn-primary btn-round btn-padded col-xs-10 col-xs-offset-1">Skapa din profil</button></a>
                                     <br/>
                                 </div>
                                 <div class="row m-t-1">
