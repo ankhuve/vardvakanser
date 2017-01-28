@@ -37,7 +37,10 @@ class FeaturedController extends Controller
         if(collect($featured)->isEmpty()){
             return redirect('home');
         } else{
-            return view('pages.featured.singlefeatured', compact('featured'));
+            // Hämta företagets jobbannonser
+            $jobs = $featured->user->activeJobs()->get();
+
+            return view('pages.featured.singlefeatured', compact('featured', !$jobs->isEmpty() ? 'jobs' : ''));
         }
     }
 }
