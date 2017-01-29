@@ -36,4 +36,21 @@
         </div>
     </section>
 
+    @if (isset($jobs))
+        <section class="register-blocks m-t-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-center underlined text-uppercase m-b-2">
+                        <h2 class="">Arbetsgivarens jobbannonser</h2>
+                    </div>
+                    <div class="col-xs-12">
+                        @foreach($jobs as $job)
+                            @include('pages.partials.custom-job-puff')
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+
 @endsection

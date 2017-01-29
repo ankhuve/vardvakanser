@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -38,6 +39,16 @@ class User extends Authenticatable
     public function jobs()
     {
         return $this->hasMany('App\Job');
+    }
+
+    /**
+     * Get the active jobs, if the user has any
+     *
+     * @return mixed
+     */
+    public function activeJobs()
+    {
+        return $this->jobs()->where('latest_application_date', '>=', Carbon::today()->toDateString());
     }
 
     /**
