@@ -22,5 +22,8 @@ elixir(mix => {
             'port' : 5001
         });
 
-    mix.version(['css/app.css', 'js/app.js']);
+    mix.version([
+        'css/app.css',
+        'js/app.js'
+    ], 'public/build');
 });
