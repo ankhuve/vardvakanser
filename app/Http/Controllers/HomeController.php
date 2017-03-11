@@ -2,6 +2,7 @@
 
 use App\Job;
 use App\Page;
+use App\ProfiledJob;
 use Carbon\Carbon;
 
 class HomeController extends Controller {
@@ -26,17 +27,23 @@ class HomeController extends Controller {
 	{
 		$numJobs = $this->getTotalNumberOfJobs();
         $newJobs = $this->getNewestJobs();
+        $profiledJobs = $this->getProfiledJobs();
 
 		$page = Page::find(3);
 		$pageContent = $page->content;
-//        dd($newJobs->all());
-		return view('home', ['newJobs' => $newJobs->all(), 'numJobs' => $numJobs, 'page' => $page, 'content' => $pageContent]);
+
+		return view('home', ['newJobs' => $newJobs->all(), 'numJobs' => $numJobs, 'page' => $page, 'content' => $pageContent, 'profiledJobs' => $profiledJobs]);
 	}
 
     public function getNewestJobs()
     {
         $data = Job::all()->sortByDesc('published_at')->take(2);
-//        dd($data);
+        return $data;
+    }
+
+    public function getProfiledJobs()
+    {
+        $data = ProfiledJob::all()->sortByDesc('start_date')->where('end_date', '>', Carbon::now());
         return $data;
     }
 

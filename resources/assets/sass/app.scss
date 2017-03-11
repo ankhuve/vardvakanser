@@ -9,6 +9,9 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Flickity
+@import "node_modules/flickity/dist/flickity";
+
 // Custom
 @import "global";
 @import "typography";
@@ -17,6 +20,7 @@
 @import "search-results";
 @import "filters";
 @import "job-block";
+@import "profiled-job-block";
 @import "pagination";
 @import "hero";
 @import "helpers";
@@ -27,3 +31,4 @@
 @import "transitions";
 @import "alerts";
 @import "puffs";
+@import "slider-jobs";

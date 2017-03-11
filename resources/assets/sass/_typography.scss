@@ -29,3 +29,14 @@ h4{
     color: $secondary-color;
     font-weight: 700;
 }
+
+.text-small{
+    letter-spacing: 0.1rem;
+    font-size: 1.3rem;
+    color: #fff;
+    text-transform: uppercase;
+
+    &.date{
+        letter-spacing: 0;
+    }
+}

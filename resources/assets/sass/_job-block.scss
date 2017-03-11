@@ -7,12 +7,16 @@
         height: auto;
         max-height: 90px;
         overflow: auto;
+
+        h2{
+            font-size: 2rem;
+        }
     }
 
     .block-bg{
         border: 2px solid rgba(0,0,0,0);
         background: white;
-        height: 180px;
+        height: auto;
         padding: 0.5rem 1.5rem;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
@@ -27,11 +31,6 @@
 
         &.bordered{
             border: 2px solid $primary-color;
-
-            //.block--description{
-            //    position: relative;
-            //    top: 3rem;
-            //}
         }
 
         &:hover{
@@ -39,11 +38,23 @@
         }
 
         .block--description{
+            padding-bottom: 2.4rem;
+
             p{
                 margin-bottom: 0.5rem;
             }
         }
 
+    }
+
+    @media (min-width: $screen-xs) {
+        .block-bg{
+            height: 180px;
+        }
+
+        .block--title > h2{
+            font-size: 2.3rem;
+        }
     }
 
     .logo{
