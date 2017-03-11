@@ -41,10 +41,10 @@
         }
 
         .input-group-btn{
-            width: 100px;
+            width: 1%;
 
             .form-input.form-input--btn{
-                width: 100px;
+                //width: 100px;
             }
         }
 
@@ -67,14 +67,19 @@
     border-radius: 3px;
 
     &.form-input--btn{
-        width: auto;
+        width: 100%;
         border: none;
         color: white;
         font-size: 2rem;
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
-        //position: absolute;
+        padding-left: 1rem;
+        padding-right: 1rem;
         border-radius: 0 3px 3px 0;
+
+        @media (min-width: $screen-xs) {
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+            width: 100%;
+        }
 
         &.btn-primary{
             background: $secondary-color;

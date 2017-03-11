@@ -21,4 +21,6 @@ elixir(mix => {
             'proxy' : 'vardvakanser.app',
             'port' : 5001
         });
+
+    mix.version(['css/app.css', 'js/app.js']);
 });

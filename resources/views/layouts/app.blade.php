@@ -83,7 +83,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img alt="{{ config('app.name', 'Vårdvakanser') }}" src="{{ asset("img/logo.png") }}">
+                <img alt="{{ config('app.name', 'Vårdvakanser') }}" src="{{ asset("img/logo_navbar.png") }}">
             </a>
         </div>
 
@@ -191,7 +191,7 @@
 @yield('content')
 
 <!-- Scripts -->
-<script src="/js/app.js"></script>
+<script src="{{ elixir('js/app.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.min.js"></script>
 <script src="{{ asset('js/summernote/lang/summernote-sv-SE.js') }}"></script>
 
