@@ -3,23 +3,25 @@
 @section('content')
     <section class="m-t-2">
         <div class="container">
-            @foreach($content as $block)
-                <div class="panel panel-custom col-lg-10 col-lg-offset-1">
-                    <div class="panel-heading">
-                        <h2>
-                            {{ $block->title }}
-                        </h2>
-                    </div>
+            @if(!is_null($content))
+                @foreach($content as $block)
+                    <div class="panel panel-custom col-lg-10 col-lg-offset-1">
+                        <div class="panel-heading">
+                            <h2>
+                                {{ $block->title }}
+                            </h2>
+                        </div>
 
-                    <div class="panel-body">
-                        <div class="well well-custom">
-                            <p style="white-space: pre-line">
-                                {{ $block->content }}
-                            </p>
+                        <div class="panel-body">
+                            <div class="well well-custom">
+                                <p style="white-space: pre-line">
+                                    {{ $block->content }}
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            @endif
         </div>
     </section>
 @endsection

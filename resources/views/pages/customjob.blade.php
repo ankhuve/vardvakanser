@@ -90,7 +90,7 @@
                                 @if(empty($jobMatch->external_link))
                                     <button class="btn btn-lg btn-secondary btn-round center-block" @click="toggleApplicationForm" v-show="!applicationFormShowing">Ansök</button>
                                 @else
-                                    <a target="_blank" href="{{ $jobMatch->external_link }}">
+                                    <a target="_blank" href="{{ env('APP_URL') }}/ansok/{{ $jobMatch->id }}">
                                         <button class="btn btn-lg btn-secondary btn-round center-block">Ansök</button>
                                     </a>
                                 @endif
