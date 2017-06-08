@@ -1433,7 +1433,6 @@ img {
   background-color: #eaebe9;
   border: 1px solid #ddd;
   border-radius: 4px;
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   max-width: 100%;
@@ -3034,7 +3033,6 @@ output {
   border: 1px solid #f6f6f6;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
@@ -4026,7 +4024,6 @@ input[type="button"].btn-block {
 
 .fade {
   opacity: 0;
-  -webkit-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear;
 }
 
@@ -4054,11 +4051,8 @@ tbody.collapse.in {
   position: relative;
   height: 0;
   overflow: hidden;
-  -webkit-transition-property: height, visibility;
   transition-property: height, visibility;
-  -webkit-transition-duration: 0.35s;
   transition-duration: 0.35s;
-  -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
 }
 
@@ -5720,7 +5714,6 @@ a.badge:hover, a.badge:focus {
   background-color: #eaebe9;
   border: 1px solid #ddd;
   border-radius: 4px;
-  -webkit-transition: border 0.2s ease-in-out;
   transition: border 0.2s ease-in-out;
 }
 
@@ -5875,13 +5868,11 @@ a.thumbnail.active {
   text-align: center;
   background-color: #3097D1;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-  -webkit-transition: width 0.6s ease;
   transition: width 0.6s ease;
 }
 
 .progress-striped .progress-bar,
 .progress-bar-striped {
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-size: 40px 40px;
 }
@@ -5897,7 +5888,6 @@ a.thumbnail.active {
 }
 
 .progress-striped .progress-bar-success {
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 
@@ -5906,7 +5896,6 @@ a.thumbnail.active {
 }
 
 .progress-striped .progress-bar-info {
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 
@@ -5915,7 +5904,6 @@ a.thumbnail.active {
 }
 
 .progress-striped .progress-bar-warning {
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 
@@ -5924,7 +5912,6 @@ a.thumbnail.active {
 }
 
 .progress-striped .progress-bar-danger {
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 
@@ -6728,7 +6715,6 @@ button.close {
 .modal.fade .modal-dialog {
   -webkit-transform: translate(0, -25%);
   transform: translate(0, -25%);
-  -webkit-transition: -webkit-transform 0.3s ease-out;
   transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
@@ -7154,7 +7140,6 @@ button.close {
 .carousel-inner > .item {
   display: none;
   position: relative;
-  -webkit-transition: 0.6s ease-in-out left;
   transition: 0.6s ease-in-out left;
 }
 
@@ -7168,7 +7153,6 @@ button.close {
 
 @media all and (transform-3d), (-webkit-transform-3d) {
   .carousel-inner > .item {
-    -webkit-transition: -webkit-transform 0.6s ease-in-out;
     transition: -webkit-transform 0.6s ease-in-out;
     transition: transform 0.6s ease-in-out;
     transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
@@ -7248,7 +7232,6 @@ button.close {
 }
 
 .carousel-control.left {
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
@@ -7257,7 +7240,6 @@ button.close {
 .carousel-control.right {
   left: auto;
   right: 0;
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
@@ -7689,7 +7671,7 @@ button.close {
   }
 }
 
-/*! Flickity v2.0.5
+/*! Flickity v2.0.7
 http://flickity.metafizzy.co
 ---------------------------------------------- */
 .flickity-enabled {
@@ -7896,7 +7878,6 @@ nav.navbar-custom {
 }
 
 nav.navbar-custom a {
-  -webkit-transition: background 0.25s, border 0.25s;
   transition: background 0.25s, border 0.25s;
   border-top: solid 2px #aa112d;
   color: white;
@@ -8121,7 +8102,6 @@ nav .dropdown.open .dropdown-menu > li > a:hover, nav .dropdown.open .dropdown-m
   padding: 0.5rem 1.5rem;
   border-radius: 3px;
   color: #909090;
-  -webkit-transition: background 0.35s ease;
   transition: background 0.35s ease;
 }
 
@@ -8571,6 +8551,7 @@ ul.pagination .active > span:hover {
 
 section.register-blocks {
   margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 section.register-blocks .block.block--register {
@@ -8594,7 +8575,6 @@ section.register-blocks .block.block--register h2 {
   font-size: 1.5rem;
   text-transform: uppercase;
   border: none;
-  -webkit-transition: background 0.25s;
   transition: background 0.25s;
 }
 
@@ -8694,7 +8674,6 @@ section.register-blocks .block.block--register h2 {
   border: none;
   padding: 3rem;
   height: 100%;
-  -webkit-transition: height 0.25s;
   transition: height 0.25s;
 }
 
@@ -8746,7 +8725,6 @@ section.register-blocks .block.block--register h2 {
 
 /* always present */
 .expand-transition {
-  -webkit-transition: all .25s ease;
   transition: all .25s ease;
   height: 100%;
   background-color: #eaebe9;
@@ -8788,7 +8766,6 @@ section.register-blocks .block.block--register h2 {
   height: 120px;
   background: #aa112d;
   box-shadow: 0 6px 0 #75112b, 0 3px 15px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  -webkit-transition: box-shadow 0.1s, background 0.2s, top 0.1s;
   transition: box-shadow 0.1s, background 0.2s, top 0.1s;
 }
 
@@ -8896,6 +8873,81 @@ section.register-blocks .block.block--register h2 {
   .flickity-page-dots {
     z-index: auto;
   }
+}
+
+.footer {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background: white;
+}
+
+.footer li {
+  padding-left: 0;
+  list-style: none;
+  line-height: 2.5rem;
+}
+
+.footer li.footer-title {
+  color: #aa112d;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 3rem;
+}
+
+.footer li.social {
+  margin-bottom: 2rem;
+}
+
+.footer li.social > a img {
+  height: 38px;
+  margin-right: 1.5rem;
+}
+
+.footer .footer-logos li {
+  height: 20px;
+  width: 100%;
+  line-height: 30px;
+  margin-bottom: 2rem;
+}
+
+.footer .footer-logos li:first-of-type {
+  height: 35px;
+  line-height: 45px;
+}
+
+.footer .footer-logos li > a, .footer .footer-logos li div {
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.footer .footer-logos li .logo-hover {
+  transition: 0.5s;
+}
+
+.footer .footer-logos li .logo-hover#jobbrek {
+  background-image: url("/img/gray/jobbrek.png");
+}
+
+.footer .footer-logos li .logo-hover#jobbrek:hover {
+  background-image: url("/img/colored/jobbrek.png");
+}
+
+.footer .footer-logos li .logo-hover#jobbiskola {
+  background-image: url("/img/gray/jobbiskola.png");
+}
+
+.footer .footer-logos li .logo-hover#jobbiskola:hover {
+  background-image: url("/img/colored/jobbiskola.png");
+}
+
+.footer .footer-logos li .logo-hover#vardvakanser {
+  background-image: url("/img/gray/vardvakanser.png");
+}
+
+.footer .footer-logos li .logo-hover#vardvakanser:hover {
+  background-image: url("/img/colored/vardvakanser.png");
 }
 
 /*# sourceMappingURL=app.css.map */
