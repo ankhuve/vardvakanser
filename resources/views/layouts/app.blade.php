@@ -190,6 +190,8 @@
 
 @yield('content')
 
+@include('pages.partials.footer')
+
 <!-- Scripts -->
 <script src="{{ elixir('js/app.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.min.js"></script>
