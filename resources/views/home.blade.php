@@ -90,19 +90,4 @@
         </div>
     </section>
 
-    {{--<section class="register-blocks">--}}
-        {{--<div class="container">--}}
-            {{--<div class="row">--}}
-                {{--<div class="col-xs-12 text-center underlined text-uppercase m-b-2">--}}
-                    {{--<h2 class="">Våra senaste jobb</h2>--}}
-                {{--</div>--}}
-                {{--<div class="col-xs-12">--}}
-                    {{--@foreach($newJobs as $job)--}}
-                        {{--@include('pages.partials.custom-job-puff')--}}
-                    {{--@endforeach--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</section>--}}
-
 @endsection

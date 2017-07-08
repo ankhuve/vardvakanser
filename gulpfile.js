@@ -16,14 +16,15 @@ require('laravel-elixir-browsersync-official');
 
 elixir(mix => {
     mix.sass('app.scss')
-       .webpack('app.js')
-        .browserSync({
-            'proxy' : 'vardvakanser.app',
-            'port' : 5001
-        });
+       .webpack('app.js');
+
 
     mix.version([
         'css/app.css',
         'js/app.js'
-    ], 'public/build');
+    ], 'public/build')
+        .browserSync({
+            'proxy' : 'vardvakanser.app',
+            'port' : 5001
+        });
 });
