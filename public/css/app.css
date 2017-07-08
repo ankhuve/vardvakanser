@@ -1433,6 +1433,7 @@ img {
   background-color: #eaebe9;
   border: 1px solid #ddd;
   border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   max-width: 100%;
@@ -3033,6 +3034,7 @@ output {
   border: 1px solid #f6f6f6;
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
 
@@ -4024,6 +4026,7 @@ input[type="button"].btn-block {
 
 .fade {
   opacity: 0;
+  -webkit-transition: opacity 0.15s linear;
   transition: opacity 0.15s linear;
 }
 
@@ -4051,8 +4054,11 @@ tbody.collapse.in {
   position: relative;
   height: 0;
   overflow: hidden;
+  -webkit-transition-property: height, visibility;
   transition-property: height, visibility;
+  -webkit-transition-duration: 0.35s;
   transition-duration: 0.35s;
+  -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
 }
 
@@ -5714,6 +5720,7 @@ a.badge:hover, a.badge:focus {
   background-color: #eaebe9;
   border: 1px solid #ddd;
   border-radius: 4px;
+  -webkit-transition: border 0.2s ease-in-out;
   transition: border 0.2s ease-in-out;
 }
 
@@ -5868,11 +5875,13 @@ a.thumbnail.active {
   text-align: center;
   background-color: #3097D1;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: width 0.6s ease;
   transition: width 0.6s ease;
 }
 
 .progress-striped .progress-bar,
 .progress-bar-striped {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-size: 40px 40px;
 }
@@ -5888,6 +5897,7 @@ a.thumbnail.active {
 }
 
 .progress-striped .progress-bar-success {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 
@@ -5896,6 +5906,7 @@ a.thumbnail.active {
 }
 
 .progress-striped .progress-bar-info {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 
@@ -5904,6 +5915,7 @@ a.thumbnail.active {
 }
 
 .progress-striped .progress-bar-warning {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 
@@ -5912,6 +5924,7 @@ a.thumbnail.active {
 }
 
 .progress-striped .progress-bar-danger {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 
@@ -6715,6 +6728,7 @@ button.close {
 .modal.fade .modal-dialog {
   -webkit-transform: translate(0, -25%);
   transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
   transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
@@ -7140,6 +7154,7 @@ button.close {
 .carousel-inner > .item {
   display: none;
   position: relative;
+  -webkit-transition: 0.6s ease-in-out left;
   transition: 0.6s ease-in-out left;
 }
 
@@ -7153,6 +7168,7 @@ button.close {
 
 @media all and (transform-3d), (-webkit-transform-3d) {
   .carousel-inner > .item {
+    -webkit-transition: -webkit-transform 0.6s ease-in-out;
     transition: -webkit-transform 0.6s ease-in-out;
     transition: transform 0.6s ease-in-out;
     transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
@@ -7232,6 +7248,7 @@ button.close {
 }
 
 .carousel-control.left {
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
@@ -7240,6 +7257,7 @@ button.close {
 .carousel-control.right {
   left: auto;
   right: 0;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.5) 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
@@ -7671,7 +7689,7 @@ button.close {
   }
 }
 
-/*! Flickity v2.0.7
+/*! Flickity v2.0.5
 http://flickity.metafizzy.co
 ---------------------------------------------- */
 .flickity-enabled {
@@ -7878,6 +7896,7 @@ nav.navbar-custom {
 }
 
 nav.navbar-custom a {
+  -webkit-transition: background 0.25s, border 0.25s;
   transition: background 0.25s, border 0.25s;
   border-top: solid 2px #aa112d;
   color: white;
@@ -8102,6 +8121,7 @@ nav .dropdown.open .dropdown-menu > li > a:hover, nav .dropdown.open .dropdown-m
   padding: 0.5rem 1.5rem;
   border-radius: 3px;
   color: #909090;
+  -webkit-transition: background 0.35s ease;
   transition: background 0.35s ease;
 }
 
@@ -8175,7 +8195,7 @@ nav .dropdown.open .dropdown-menu > li > a:hover, nav .dropdown.open .dropdown-m
 }
 
 .block--profiled-job {
-  margin: 15px 0;
+  margin: 15px 0 50px;
   height: 200px;
 }
 
@@ -8575,6 +8595,7 @@ section.register-blocks .block.block--register h2 {
   font-size: 1.5rem;
   text-transform: uppercase;
   border: none;
+  -webkit-transition: background 0.25s;
   transition: background 0.25s;
 }
 
@@ -8674,6 +8695,7 @@ section.register-blocks .block.block--register h2 {
   border: none;
   padding: 3rem;
   height: 100%;
+  -webkit-transition: height 0.25s;
   transition: height 0.25s;
 }
 
@@ -8725,6 +8747,7 @@ section.register-blocks .block.block--register h2 {
 
 /* always present */
 .expand-transition {
+  -webkit-transition: all .25s ease;
   transition: all .25s ease;
   height: 100%;
   background-color: #eaebe9;
@@ -8766,6 +8789,7 @@ section.register-blocks .block.block--register h2 {
   height: 120px;
   background: #aa112d;
   box-shadow: 0 6px 0 #75112b, 0 3px 15px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  -webkit-transition: box-shadow 0.1s, background 0.2s, top 0.1s;
   transition: box-shadow 0.1s, background 0.2s, top 0.1s;
 }
 
@@ -8840,6 +8864,16 @@ section.register-blocks .block.block--register h2 {
   bottom: 0;
 }
 
+.slider--jobs {
+  height: 265px;
+  overflow: hidden;
+}
+
+.slider--jobs .flickity-page-dots {
+  z-index: 10;
+  bottom: 0;
+}
+
 .slider--jobs__action {
   position: relative;
   width: auto;
@@ -8847,7 +8881,7 @@ section.register-blocks .block.block--register h2 {
   list-style: none;
   text-align: center;
   line-height: 1;
-  top: 3.5rem;
+  top: 1.5rem;
   z-index: auto;
 }
 
@@ -8855,18 +8889,10 @@ section.register-blocks .block.block--register h2 {
   font-size: 1.2rem;
 }
 
-.slider--jobs__action h4 {
-  color: #32b4d6;
-}
-
-.flickity-page-dots {
-  z-index: 10;
-}
-
 @media (min-width: 992px) {
   .slider--jobs__action {
     text-align: right;
-    margin-top: 1rem;
+    margin-top: -2rem;
     z-index: 10;
     top: auto;
   }
@@ -8923,6 +8949,7 @@ section.register-blocks .block.block--register h2 {
 }
 
 .footer .footer-logos li .logo-hover {
+  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
