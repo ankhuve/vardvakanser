@@ -43,7 +43,7 @@ class SearchController extends Controller
         }
 
         // hämta våra jobb
-        if (!is_null($keyword) || Input::get('lan') != "" || Input::get('yrkesgrupper') != "") {
+        if (!is_null($keyword) || Input::get('lan') != "" || Input::get(config('app.af_type_name_minor')) != "") {
             // om vi har ett sökord eller parametrar
             $customResults = $this->searchCustomJobs($keyword, $request, $askedPage);
         } else {
@@ -111,10 +111,6 @@ class SearchController extends Controller
 
                 $afJobs = $results['jobMatches'];
                 $afSearchMeta = $results['searchMeta'];
-            }
-            else{
-                // om det inte hittades några AF-jobb
-                $request->flash();
             }
         }
         elseif($offset != 0 && $askedPage > $firstPageWithAFJobs){
@@ -226,8 +222,9 @@ class SearchController extends Controller
         $searchParams = [
             'anstallningstyp' => 1,
             'antalrader' => 1,
-            'yrkesomradeid' => config('app.yrkesomradeid')[0]
         ];
+
+        config('app.af_type_name_major') ? $searchParams[config('app.af_type_name_major')] = config('app.af_type_major')[0] : null;
 
         if(isset($keyword)){
             $searchParams['nyckelord'] = $keyword;
@@ -243,8 +240,13 @@ class SearchController extends Controller
             }
         }
 
-        if(Input::get('yrkesgrupper')){
-            $searchParams['yrkesgruppid'] = Input::get('yrkesgrupper');
+        if(Input::get(config('app.af_type_name_minor'))){
+            if (Input::get(config('app.af_type_name_minor')) < 9000) {
+                $searchParams[config('app.af_type_name_minor')] = Input::get(config('app.af_type_name_minor'));
+            }
+            else {
+                return 0;
+            }
         }
 
 //        if(Input::get('yrkesomraden')){
@@ -303,9 +305,10 @@ class SearchController extends Controller
             'anstallningstyp' => 1,
 //            'nyckelord' => $keyword,
 //            'lanid' => Input::get('lan') ?: null,
-            'yrkesomradeid' => config('app.yrkesomradeid')[0],
             'sida' => $pageToGet
         ];
+
+        config('app.af_type_name_major') ? $searchParams[config('app.af_type_name_major')] = config('app.af_type_major')[0] : null;
 
         if(isset($keyword)){
             $searchParams['nyckelord'] = $keyword;
@@ -320,8 +323,13 @@ class SearchController extends Controller
             }
         }
 
-        if(Input::get('yrkesgrupper')){
-            $searchParams['yrkesgruppid'] = Input::get('yrkesgrupper');
+        if(Input::get(config('app.af_type_name_minor'))){
+            if (Input::get(config('app.af_type_name_minor')) < 9000) {
+                $searchParams[config('app.af_type_name_minor')] = Input::get(config('app.af_type_name_minor'));
+            }
+            else {
+                return false;
+            }
         }
 
         try{
@@ -332,7 +340,6 @@ class SearchController extends Controller
                     'Accept-Language' => 'sv-se,sv'
                 ]
             ]);
-
             // Create a Collection of the results
             $response = collect(json_decode($searchResults->getBody()->getContents()));
             $searchMeta = collect($response->get('matchningslista'));
@@ -373,7 +380,8 @@ class SearchController extends Controller
                 ->query($searchQuery)
                 ->getQuery()
                 ->having('relevance', '>', 30)
-                ->orderBy('relevance', 'desc');
+                ->orderBy('relevance', 'desc')
+                ->where('latest_application_date', '>=', Carbon::today()->toDateString());
         } else{
             $allMatches = Job::query()->where('latest_application_date', '>=', Carbon::today()->toDateString())->orderBy('published_at', 'desc');
         };
@@ -389,24 +397,30 @@ class SearchController extends Controller
             }
         }
 
-        if (Input::get('yrkesgrupper')){
-            $searchParams['yrkesgruppid'] = Input::get('yrkesgrupper');
-            // Filtrera på arbetstyp
-            if (isset($searchParams['yrkesgruppid'])){
-                $allMatches = $allMatches->where('type', 'like', '%' . $searchParams['yrkesgruppid'] . '%');
-            }
+        $resultsAreCollection = false;
+        if (Input::get(config('app.af_type_name_minor'))){
+            $searchParams[config('app.af_type_name_minor')] = Input::get(config('app.af_type_name_minor'));
+
+            // Get all matches so we can go through the type column
+            $matchesCollection = $allMatches->get();
+
+            // filter out the matches which have the requested type
+            $allMatches = $matchesCollection->filter(function ($match, $key) use ($searchParams) {
+                $types = collect(json_decode($match->type));
+                return ($types->contains($searchParams[config('app.af_type_name_minor')]));
+            });
+
+            $resultsAreCollection = true;
         }
 
-        // Filtrera bort jobb som haft sin sista ansökan
-        $activeMatches = $allMatches->where('latest_application_date', '>=', Carbon::today()->toDateString());
+        if (!$resultsAreCollection) {
+            // Hämta träffarna för sidan
+            $allMatches = $allMatches->get();
+        }
 
-        $numTotalMatches = count($activeMatches->get());
+        $numTotalMatches = $allMatches->count();
+        $pageResults = $allMatches->splice($rowsToSkip, $this->numPerPage);
 
-        // Hämta träffarna för sidan
-        $pageResults = $allMatches
-            ->skip($rowsToSkip)
-            ->take($this->numPerPage)
-            ->get();
 
         foreach ($pageResults as $job){
             $url = action('JobController@customJob', [$job->id, str_slug($job->title)]);

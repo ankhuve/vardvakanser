@@ -75,7 +75,7 @@
                     'sida': '',
                     'lan': '',
                     'q': '',
-                    'yrkesgrupper': ''
+                    'yrkesgruppid': ''
                 }
             }
         },

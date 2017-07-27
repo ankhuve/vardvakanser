@@ -2,7 +2,10 @@
 
 return [
 
-    'yrkesomradeid' => [8],
+    'af_type_major' => [8],
+
+    'af_type_name_major' => 'yrkesomradeid',
+    'af_type_name_minor' => 'yrkesgruppid',
 
     /*
     |--------------------------------------------------------------------------
