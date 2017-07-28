@@ -12,6 +12,12 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
+// uncomment these for production
+Vue.config.performance = false;
+Vue.config.devtools = false;
+Vue.config.debug = false;
+Vue.config.silent = true;
+
 Vue.component('job-counter', require('./components/JobCounter.vue'));
 Vue.component('search-results', require('./components/SearchResults.vue'));
 Vue.component('custom-job-puff', require('./components/CustomJobPuff.vue'));
