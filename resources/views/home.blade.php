@@ -34,18 +34,7 @@
             </section>
 
             <div class="col-xs-12 text-center">
-                <div class="job-counter">
-                    <div>
-                        <h3>Aktiva jobbannonser </h3>
-                    </div>
-                    <div class="row">
-                        &nbsp;
-                        @foreach(str_split($numJobs) as $number)<span>
-                            {{ $number }}
-                        </span>@endforeach
-
-                    </div>
-                </div>
+                <job-counter></job-counter>
             </div>
 
             <div class="splash-box text-center center-block">

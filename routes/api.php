@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+
+// Get the total number of jobs currently listed on the site
+Route::get('/numJobs', 'HomeController@getTotalNumberOfJobs');
+
+// Get all job ads
+Route::get('/fetchJobs', 'SearchController@getJobs');
+Route::post('/fetchJobs', 'SearchController@getJobs');

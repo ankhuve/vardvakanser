@@ -25,14 +25,14 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		$numJobs = $this->getTotalNumberOfJobs();
+//		$numJobs = $this->getTotalNumberOfJobs();
         $profiledJobs = $this->getProfiledJobs();
 
         if($page = Page::find(3)){
             $pageContent = $page->content;
 
             return view('home', [
-                    'numJobs' => $numJobs,
+//                    'numJobs' => $numJobs,
                     'page' => $page,
                     'content' => $pageContent,
                     'profiledJobs' => $profiledJobs]
@@ -40,7 +40,7 @@ class HomeController extends Controller {
         }
         else{
             return view('home', [
-                    'numJobs' => $numJobs,
+//                    'numJobs' => $numJobs,
                     'page' => null,
                     'content' => null,
                     'profiledJobs' => $profiledJobs]
@@ -62,9 +62,10 @@ class HomeController extends Controller {
 
 	public function getTotalNumberOfJobs()
 	{
-		$numOfAFJobs = SearchController::getNumberOfAfJobs();
-		$numCustomJobs = Job::where('latest_application_date', '>', Carbon::now())->count();
-		return $numOfAFJobs + $numCustomJobs;
+        $numOfAFJobs = SearchController::getNumberOfAfJobs();
+        $numCustomJobs = Job::where('latest_application_date', '>', Carbon::now())->count();
+        $allJobs = $numOfAFJobs + $numCustomJobs;
+        return $allJobs;
 	}
 
 }
