@@ -22,7 +22,7 @@ elixir(mix => {
             'js/app.js'
         ], 'public/build')
         .browserSync({
-            'proxy' : 'vardvakanser.app',
+            'proxy' : 'vardvakanser.test',
             'port' : 5001
         });
 });
