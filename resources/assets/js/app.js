@@ -36,6 +36,19 @@ const app = new Vue({
         resetSearchFilters: function(){
             $(".filters option[selected]").removeAttr('selected');
             $(".defaultOption").attr('selected','selected');
+        },
+
+        requireCaptcha: function () {
+            let $recaptcha = document.querySelector('#g-recaptcha-response');
+            console.log($recaptcha);
+            if($recaptcha) {
+                $recaptcha.setAttribute("required", "required");
+            }
         }
+    },
+    created: function () {
+        $(document).ready(function () {
+            this.requireCaptcha()
+        }.bind(this))
     }
 });

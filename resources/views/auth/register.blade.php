@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('scripts')
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+@endsection
+
 @section('content')
     <section class="m-t-2">
         <div class="container">
@@ -408,6 +412,12 @@
                                             <strong>{{ $errors->first('category') }}</strong>
                                         </span>
                                     @endif
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-4">
+                                        <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}"></div>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
