@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Carbon\Carbon;
+use GuzzleHttp\Client;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -61,7 +62,8 @@ class RegisterController extends Controller
             'password' => 'required|min:6|confirmed',
             'cv' => 'max:3072|mimes:doc,docx,pdf,rtf,txt',
             'lan' => 'required|numeric',
-            'category' => 'required|min:1'
+            'category' => 'required|min:1',
+            'g-recaptcha-response' => 'required',
         ]);
     }
 
@@ -134,15 +136,45 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
 
-        event(new Registered($user = $this->create($request->all())));
+        $isValid = $this->validateCaptcha([
+            'secret' => env('CAPTCHA_SECRET'),
+            'response' => $request->get('g-recaptcha-response'),
+            'remoteip' => $request->ip()
+        ]);
 
-//        $this->guard()->login($user);
+        if ($isValid) {
+            event(new Registered($user = $this->create($request->all())));
 
-//        return view($this->redirectTo)
-        return redirect($this->redirectPath())->with('message', 
-            '<h2>Tack för att du registrerade dig!</h2> 
-            Du är nu registrerad i vår databas och är synlig för företag som letar efter just dig.
-            <br>Lycka till med jobbsökandet!
-            <br><br>Förresten, du vet väl att du alltid kan <a href="' . action('ContactController@create') . '">kontakta oss</a> om du har några frågor?');
+            //        $this->guard()->login($user);
+
+            //        return view($this->redirectTo)
+            return redirect($this->redirectPath())->with('message',
+                '<h2>Tack för att du registrerade dig!</h2> 
+                Du är nu registrerad i vår databas och är synlig för företag som letar efter just dig.
+                <br>Lycka till med jobbsökandet!
+                <br><br>Förresten, du vet väl att du alltid kan <a href="' . action('ContactController@create') . '">kontakta oss</a> om du har några frågor?');
+        } else {
+            return redirect($this->redirectPath())->withErrors(['recaptcha' => 'reCAPTCHA felaktig.']);
+        }
+    }
+
+    private function validateCaptcha($params)
+    {
+        $client = new Client();
+        try{
+            $searchResults = $client->get('https://www.google.com/recaptcha/api/siteverify', [
+                'query' => $params,
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Accept-Language' => 'sv-se,sv'
+                ]
+            ]);
+
+            $response = json_decode($searchResults->getBody()->getContents());
+
+            return $response->success;
+        } catch(\Exception $e){
+            return false;
+        }
     }
 }

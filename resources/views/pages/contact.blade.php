@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('scripts')
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+@endsection
+
 @section('content')
     <section class="m-t-2">
         <div class="container">
@@ -34,6 +38,10 @@
                             <div class="form-group">
                                 {!! Form::label('Meddelande') !!}
                                 {!! Form::textarea('message', null, array('required', 'class'=>'form-control bordered', 'placeholder'=>'Vad funderar du på?')) !!}
+                            </div>
+
+                            <div class="form-group">
+                                <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}"></div>
                             </div>
 
                             @if(!empty($errors->all()))

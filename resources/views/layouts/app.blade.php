@@ -67,6 +67,8 @@
         ga('create', 'UA-83188287-3', 'auto');
         ga('send', 'pageview');
     </script>
+
+    @yield('scripts')
 </head>
 <body>
 <nav class="navbar navbar-custom navbar-static-top">
