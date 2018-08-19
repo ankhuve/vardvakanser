@@ -14,4 +14,19 @@
         -moz-border-radius: 0 0 4px 4px;
         border-radius: 0 0 4px 4px;
     }
+
+    &.alert-bottom{
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        margin-bottom: 0;
+        padding: 1rem;
+        text-align: center;
+        color: white;
+        background: rgba($primary-color, 0.9);
+
+        > h1 {
+            color: white;
+        }
+    }
 }
