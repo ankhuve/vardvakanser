@@ -193,6 +193,7 @@
 @yield('content')
 
 @include('pages.partials.footer')
+<cookie-info></cookie-info>
 
 <!-- Scripts -->
 <script src="{{ elixir('js/app.js') }}"></script>
